@@ -1,0 +1,19 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model SalonShop {
+  address    String?
+  createdAt  DateTime @default(now())
+  id         String   @id @default(cuid())
+  image      Json?
+  name       String?
+  ratings    Float?
+  updatedAt  DateTime @updatedAt
+  viewButton Boolean?
+}
